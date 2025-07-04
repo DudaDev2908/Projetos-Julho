@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="3.css">
+</head>
+<body>
+    <div class="atm">
+        <div class="tela">
+        <h2>Bem-vindo</h2>
+        <input type="number" id="valor" placeholder="R$ 0,00" />
+        <div id="mensagem" class="mensagem">Saldo: R$0,00</div>
+    </div>
+    <div class="botoes-esquerda">
+        <button onclick="depositar()">Depositar</button>
+        <button onclick="sacar()">Sacar</button>
+    </div>
+    <div class="botoes-direita">
+        <button onclick="mostrarSaldo()">Ver Saldo</button>
+        <button onclick="limpar()">Limpar</button>
+</div>
+<div class="caixa-base">
+    Simulação de ATM - Nenhum valor real é movimentado.
+</div>
+<script src="2.js"></script>
+</body>
+</html>
