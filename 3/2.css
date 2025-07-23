@@ -1,54 +1,96 @@
-body {
-    font-family: sans-serif;
+.contact {
+    background-color: #c9e9a4;
+    padding: 40px 20px;
+    max-width: 600px;
+    margin: 40px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.contact h2 {
     text-align: center;
-    background: #f9f9f9;
-    padding: 40px;
+    margin-bottom: 20px;
+    color: #333;
 }
-h1 {
-    margin-bottom: 10px;
+.contact p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #555;
 }
-#status {
-    font-size: 20px;
-    margin: 10px 0;
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
 }
-.tabuleiro {
-    display: grid;
-    grid-template-columns: repeat(2, 100px);
-    grid-template-rows: repeat(2, 100px);
-    gap: 10px;
-    justify-content: center;
-    margin: 20px 0;
-}
-.cor {
-    height: 100px;
-    border-radius: 10px;
-    opacity: 0.8;
-    cursor: pointer;
-    transition: opacity 0.2s    ;
-}
-#verde { background: green;}
-#vermelho { background: red; }
-#azul { background: blue; }
-#amarelo { background: yellow; }
-
-.cor.ativa {
-    filter: brightness(4);
-    opacity: 1 !important;
-    box-shadow: 0 0 30px white;
-    transition: filter 0.2s, box-shadow 0.2s;
-}
-
-button {
-    padding: 10px 20px;
-    background: #333;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 20px
-}
-#nivel {
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
     font-weight: bold;
-    font-size: 18px;
 }
+.form-group input[type='text'],
+.form-group input[type='email'],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    }
+    .form-group textarea {
+        resize: vertical;
+    }
+    .error-message {
+        display: block;
+        color: #dc3545;
+        font-size: 0.9em;
+        margin-top: 5px;
+    }
+    #formMessage {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 4px;
+        text-align: center;
+        font-weight: bold;
+    }
+    #formMessage.success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #f5c6cb;
+    }
+    @media (max-width: 600px) {
+        .contact {
+            margin: 20px;
+            padding: 20px;
+        }
+    }
+    button {
+        background-color: #2d692f;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+        width: 100%;
+        margin-top: 10px;
+    }
+    button:hover {
+        background-color: #08550c;
+    }
+    button:active {
+        background-color: #6a6d6a;
+    }
+    button:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+    }
+    body {
+        background-image: url('img/mariogames.gif');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        min-height: 100vh;
+    }

@@ -4,26 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="3.css">
+    <link rel="stylesheet" href="2.css">
 </head>
 <body>
-    <div class="atm">
-        <div class="tela">
-        <h2>Bem-vindo</h2>
-        <input type="number" id="valor" placeholder="R$ 0,00" />
-        <div id="mensagem" class="mensagem">Saldo: R$0,00</div>
+    <div class="player-container">
+        <div class="player" id="player">
+            <h2 id="trackTitle">Tocando: musica.mp3</h2>
+
+            <audio id="audio" src="music/STANDING HERE, I REALIZE but in HD and Extended.mp3"></audio>
+
+            <div class="controls">
+                <button id="playPause" title="Play/Pause">play</button>
+                <div class="progress-container" title="Progresso">
+                    <div id="progress-bar"></div>
+                </div>
+            </div>
+            <div class="time">
+                <span id="currentTime">00:00</span> /
+                <span id="duration">00:00</span>
+            </div>
+            <div class="volume">
+                <label for="volumeRange">Volume</label>
+                <input type="range" id="volumeRange" min="0" max="1" step="0.01" value="1">
+            </div>
+            <button id="toggleTheme" class="theme-btn" title="Alternar tema">🌙</button>
+        </div>
     </div>
-    <div class="botoes-esquerda">
-        <button onclick="depositar()">Depositar</button>
-        <button onclick="sacar()">Sacar</button>
-    </div>
-    <div class="botoes-direita">
-        <button onclick="mostrarSaldo()">Ver Saldo</button>
-        <button onclick="limpar()">Limpar</button>
-</div>
-<div class="caixa-base">
-    Simulação de ATM - Nenhum valor real é movimentado.
-</div>
-<script src="2.js"></script>
+    <script src="3.js"></script>
 </body>
 </html>

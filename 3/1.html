@@ -7,16 +7,30 @@
     <link rel="stylesheet" href="2.css">
 </head>
 <body>
-    <h1>Simon Says</h1>
-    <p id="status">Clique em "iniciar"</p>
-    <div class="tabuleiro">
-    <div class="cor" id="verde"></div>
-    <div class="cor" id="vermelho"></div>
-    <div class="cor" id="azul"></div>
-    <div class="cor" id="amarelo"></div>
-</div>
-<button onclick="iniciarJogo()">Iniciar</button>
-<p id="nivel">Nível: 0</p>
-<script src="3.js"></script>
+    <section id="contato" class="contact">
+        <h2>Contato</h2>
+        <p>Sinta-se à vontade para entrar em contato comigo!</p>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+                <span class="error-message" id="nameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <label for="message">Mensagem:</label>
+                <textarea id="message" name="message"
+            rows="5" required></textarea>
+            <span class="error-message" id="messageError"></span>
+            </div>
+            <button type="submit" class="button">Enviar Mensagem</button>
+            <div id="formMessage" class="form-message"></div>
+        </form>
+    </section>
+    <script src="3.js"></script>
 </body>
 </html>

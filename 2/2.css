@@ -1,0 +1,120 @@
+:root {
+    --bg: #f0f0f0;
+    --text: #333;
+    --card-bg: #ffffff;
+    --button-bg: #00796b;
+    --button-hover: #pink;
+    --progress-bg: #ccc;
+    --progress-fill: #00796b;
+}
+body.dark {
+    --bg: #121212;
+    --text: #eeeeee;
+    --card-bg: #1e1e1e;
+    --button-bg: #546e7a;
+    --button-hover: #37474f;
+    --progress-bg: #2e2e2e;
+    --progress-fill: #00bfa5;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5;
+}
+body {
+    font-family: 'arial', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background 0.3s, color 0.3s;
+}
+
+.player-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.player {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background 0.3s, color 0.3s;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 10px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    background: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+button:hover {
+    background: var(--button-hover);
+}
+
+.progress-container {
+    background: var(--progress-bg);
+    flex: 1;
+    height: 8px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    background: var(--progress-fill);
+    height: 100%;
+    width: 0%;
+    transition: width 0.2s linear;
+}
+
+.time {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.volume {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+#volumeRange {
+    width: 100px;
+}
+
+.theme-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+    font-size: 18px;
+    background: none;
+    color: var(--text);
+    border: none;
+    cursor: pointer;
+}

@@ -1,68 +1,62 @@
-const cores = ['verde', 'vermelho', 'azul', 'amarelo'];
-let sequencia = [];
-let jogador = [];
-let nivel = 0;
-let bloqueado = false;
+const contactForm = document.getElementById('contactForm');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const messageInput = document.getElementById('message'); // corrigido aqui
+const nameError = document.getElementById('nameError');
+const emailError = document.getElementById('emailError');
+const messageError = document.getElementById('messageError');
+const formMessage = document.getElementById('formMessage');
 
-const status = document.getElementById('status');
-const nivelEl = document.getElementById('nivel');
-
-function iniciarJogo() {
-    sequencia = [];
-    jogador = [];
-    nivel = 0;
-    proximaRodada();
-}
-function proximaRodada() {
-    jogador = [];
-    bloqueado = true;
-    nivel++;
-    nivelEl.textContent = 'Nível:' + nivel;
-    status.textContent = 'Aguarde...';
-
-    const novaCor = cores[Math.floor(Math.random() * cores.length)];
-    sequencia.push(novaCor);
-
-    reproduzirSequencia(sequencia);
-}
-function reproduzirSequencia(seq) {
-    let i = 0;
-    const intervalo = setInterval(() => {
-        acender(seq[i]);
-        i++;
-        if (i >= seq.length) {
-            clearInterval(intervalo);
-            bloqueado = false;
-            status.textContent = 'Sua vez!';
-        }
-    }, 800);
-}
-
-function acender(cor) {
-    const el = document.getElementById(cor);
-    el.classList.add('ativa');
-    setTimeout(() => el.classList.remove('ativa'), 400);
-}
-
-function clique(cor) {
-    if (bloqueado) return;
-
-    jogador.push(cor);
-    acender(cor);
-
-    const i = jogador.length - 1;
-    if (jogador[i] !== sequencia[i]) {
-        status.textContent = 'Você errou! Tente novamente.';
-        bloqueado = true;
-        return;
-    }
-
-    if (jogador.length === sequencia.length) {
-        status.textContent = 'Boa! Próximo nível.';
-        setTimeout(() => proximaRodada(), 1000);
-    }
-}
-
-cores.forEach(cor => {
-    document.getElementById(cor).addEventListener('click', () => clique(cor));
+contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    validateForm();
 });
+
+function validateForm() {
+    let isValid = true;
+    if (nameInput.value.trim() === '') {
+        displayError(nameError, 'Por favor, digite seu nome.');
+        isValid = false;
+    } else {
+        clearError(nameError);
+    }
+    if (emailInput.value.trim() === '') {
+        displayError(emailError, 'Por favor, digite seu e-mail.');
+        isValid = false;
+    } else if (!isValidEmail(emailInput.value.trim())) {
+        displayError(emailError, 'Por favor, digite um e-mail válido.');
+        isValid = false;
+    } else {
+        clearError(emailError);
+    }
+    if (messageInput.value.trim() === '') {
+        displayError(messageError, 'Por favor, digite sua mensagem.');
+        isValid = false;
+    } else {
+        clearError(messageError);
+    }
+    if (isValid) {
+        displayMessage('Mensagem enviada com sucesso!', 'success');
+        contactForm.reset();
+    } else {
+        displayMessage('Por favor, corrija os erros no formulário.', 'error');
+    }
+}
+
+function displayError(element, message) {
+    element.textContent = message;
+}
+
+function clearError(element) {
+    element.textContent = '';
+}
+
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function displayMessage(message, type) {
+    formMessage.textContent = message;
+    formMessage.className = `form-message ${type}`;
+}
